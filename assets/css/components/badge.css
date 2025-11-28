@@ -1,0 +1,165 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * BADGE.CSS — Бейджи и чипы
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   БАЗОВЫЙ BADGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: var(--space-2) var(--space-4);
+
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+
+  background: rgba(62, 230, 177, 0.1);
+  border: 1px solid rgba(62, 230, 177, 0.2);
+  border-radius: var(--radius-full);
+
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ВАРИАНТЫ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Вторичный (синий) */
+.badge--secondary {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+  color: var(--accent-secondary);
+}
+
+/* Золотой */
+.badge--gold {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+  color: var(--rank-gold);
+}
+
+/* Серебряный */
+.badge--silver {
+  background: rgba(192, 192, 192, 0.1);
+  border-color: rgba(192, 192, 192, 0.3);
+  color: var(--rank-silver);
+}
+
+/* Бронзовый */
+.badge--bronze {
+  background: rgba(205, 127, 50, 0.1);
+  border-color: rgba(205, 127, 50, 0.3);
+  color: var(--rank-bronze);
+}
+
+/* Успех */
+.badge--success {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.2);
+  color: var(--color-success);
+}
+
+/* Предупреждение */
+.badge--warning {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.2);
+  color: var(--color-warning);
+}
+
+/* Ошибка / Review */
+.badge--danger {
+  background: rgba(249, 115, 115, 0.1);
+  border-color: rgba(249, 115, 115, 0.2);
+  color: var(--color-danger);
+}
+
+/* Нейтральный (серый) */
+.badge--neutral {
+  background: rgba(148, 163, 184, 0.1);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: var(--text-tertiary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   РАЗМЕРЫ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge--sm {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+}
+
+.badge--lg {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-md);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE СО СВЕЧЕНИЕМ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge--glow {
+  box-shadow: 0 0 20px rgba(62, 230, 177, 0.3);
+}
+
+.badge--gold.badge--glow {
+  box-shadow: 0 0 20px var(--rank-gold-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BADGE С ИКОНКОЙ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.badge__icon {
+  width: 14px;
+  height: 14px;
+}
+
+.badge--lg .badge__icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CHIP (Интерактивный бейдж)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  padding: var(--space-2) var(--space-4);
+
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+
+  color: var(--text-secondary);
+  cursor: pointer;
+
+  transition: var(--transition-fast);
+}
+
+.chip:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  color: var(--text-primary);
+}
+
+.chip.is-active {
+  background: rgba(62, 230, 177, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}

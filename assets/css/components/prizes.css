@@ -1,0 +1,318 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * PRIZES.CSS — Секция призов и номинаций
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ PRIZES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prizes {
+  padding-block: var(--section-padding);
+}
+
+/* Бейдж Prize Pool */
+.prizes__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.prizes__banner {
+  position: relative;
+  margin-bottom: var(--space-8);
+  border-radius: var(--glass-radius-xl);
+  overflow: hidden;
+}
+
+/* Плавный fade по краям баннера */
+.prizes__banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: 
+    /* Верхний fade */ linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.4) 0%,
+      rgba(2, 6, 23, 0) 20%
+    ),
+    /* Нижний fade (сильнее) */
+      linear-gradient(
+        0deg,
+        var(--bg-primary) 0%,
+        rgba(2, 6, 23, 0.8) 15%,
+        rgba(2, 6, 23, 0) 40%
+      ),
+    /* Боковые fade */
+      linear-gradient(
+        90deg,
+        rgba(2, 6, 23, 0.5) 0%,
+        rgba(2, 6, 23, 0) 15%,
+        rgba(2, 6, 23, 0) 85%,
+        rgba(2, 6, 23, 0.5) 100%
+      );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.prizes__banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.prizes__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+
+  padding: var(--space-2) var(--space-5);
+
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: var(--radius-full);
+
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--rank-gold);
+
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GRID ПРИЗОВЫХ КАРТОЧЕК
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prizes__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .prizes__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ПРИЗОВАЯ КАРТОЧКА
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prize-card {
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-8);
+
+  transition: var(--transition-normal);
+}
+
+.prize-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+.prize-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.prize-card__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СПИСОК ОСНОВНЫХ ПРИЗОВ (1, 2, 3 место)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prize-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.prize-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-lg);
+
+  transition: var(--transition-fast);
+}
+
+.prize-list__item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Медаль */
+.prize-list__medal {
+  font-size: var(--text-2xl);
+  flex-shrink: 0;
+}
+
+/* Место */
+.prize-list__place {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 70px;
+}
+
+/* Приз */
+.prize-list__prize {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--accent-primary);
+}
+
+/* Золотой приз */
+.prize-list__item--gold {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.prize-list__item--gold .prize-list__place {
+  color: var(--rank-gold);
+}
+
+/* Серебряный приз */
+.prize-list__item--silver {
+  background: rgba(192, 192, 192, 0.05);
+  border: 1px solid rgba(192, 192, 192, 0.15);
+}
+
+.prize-list__item--silver .prize-list__place {
+  color: var(--rank-silver);
+}
+
+/* Бронзовый приз */
+.prize-list__item--bronze {
+  background: rgba(205, 127, 50, 0.05);
+  border: 1px solid rgba(205, 127, 50, 0.15);
+}
+
+.prize-list__item--bronze .prize-list__place {
+  color: var(--rank-bronze);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СПЕЦИАЛЬНЫЕ НОМИНАЦИИ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.special-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.special-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-lg);
+
+  transition: var(--transition-fast);
+}
+
+.special-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.special-item__icon {
+  font-size: var(--text-2xl);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.special-item__icon img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.special-item__content {
+  flex: 1;
+}
+
+.special-item__title {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.special-item__desc {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-2);
+}
+
+.special-item__prize {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ОБЩИЙ ПРИЗОВОЙ ФОНД
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prizes__total {
+  text-align: center;
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: var(--radius-xl);
+
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+}
+
+.prizes__total-value {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--rank-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   КНОПКА СКАЧАТЬ ПРАВИЛА
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.prizes__download {
+  display: flex;
+  justify-content: center;
+}

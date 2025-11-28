@@ -1,0 +1,488 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * HEADER.CSS — Навигация с Liquid Glass
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Sticky хедер с эффектами: shrink, hide/show при скролле, mobile menu.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADER CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+
+  /* Liquid Glass эффект */
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  border-bottom: 1px solid var(--glass-border);
+
+  /* Высота */
+  height: var(--header-height);
+
+  /* Плавные переходы */
+  transition: background var(--duration-normal) var(--ease-smooth),
+    height var(--duration-normal) var(--ease-smooth),
+    transform var(--duration-normal) var(--ease-smooth),
+    box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+/* Состояние при скролле */
+.header.is-scrolled {
+  background: rgba(2, 6, 23, 0.95);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Скрытие при скролле вниз */
+.header.is-hidden {
+  transform: translateY(-100%);
+}
+
+/* Shrink состояние (уменьшение высоты) */
+.header.is-shrunk {
+  height: var(--header-height-shrunk);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADER INNER CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ЛОГОТИП
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+.header__logo img {
+  height: 40px;
+  width: auto;
+}
+
+.header.is-shrunk .header__logo img {
+  height: 32px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ДЕСКТОП НАВИГАЦИЯ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header__nav {
+    display: block;
+  }
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* Ссылка навигации */
+.header__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.header__link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Подчёркивание при hover */
+.header__link::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: var(--space-4);
+  right: var(--space-4);
+  height: 2px;
+  background: var(--accent-primary);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.header__link:hover::after,
+.header__link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Активная ссылка */
+.header__link.is-active {
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CTA КНОПКА В ХЕДЕРЕ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__cta {
+  display: none;
+  margin-left: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .header__cta {
+    display: inline-flex;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BURGER КНОПКА (МОБИЛЬНОЕ МЕНЮ)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  width: 44px;
+  height: 44px;
+  padding: var(--space-2);
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: calc(var(--z-fixed) + 10);
+}
+
+@media (min-width: 1024px) {
+  .header__burger {
+    display: none;
+  }
+}
+
+.header__burger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: var(--transition-normal);
+  transform-origin: center;
+}
+
+/* Анимация X при открытии */
+.header__burger.is-active .header__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__burger.is-active .header__burger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.header__burger.is-active .header__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   МОБИЛЬНОЕ МЕНЮ (OVERLAY)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 380px;
+  height: 100vh;
+  height: 100dvh;
+
+  /* Premium Dark Glass */
+  background: linear-gradient(
+    135deg,
+    rgba(2, 6, 23, 0.98) 0%,
+    rgba(15, 23, 42, 0.98) 100%
+  );
+  border-left: 1px solid rgba(62, 230, 177, 0.15);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5),
+    inset 1px 0 0 rgba(255, 255, 255, 0.05);
+
+  /* Скрыто по умолчанию */
+  transform: translateX(100%);
+  visibility: hidden;
+
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+
+  z-index: 9999;
+
+  /* Внутренний padding */
+  padding: var(--space-8);
+  padding-top: calc(var(--space-20) + var(--space-4));
+
+  overflow-y: auto;
+
+  /* Flex для правильного выравнивания */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Декоративное свечение */
+.header__mobile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(62, 230, 177, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Кнопка закрытия внутри меню */
+.header__mobile-close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+
+  color: var(--text-tertiary);
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.header__mobile-close:hover {
+  background: rgba(62, 230, 177, 0.1);
+  border-color: rgba(62, 230, 177, 0.3);
+  color: var(--accent-primary);
+  transform: rotate(90deg);
+}
+
+.header__mobile-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Открытое состояние */
+.header__mobile.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Overlay затемнение */
+.header__mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity var(--duration-normal) var(--ease-out),
+    visibility var(--duration-normal);
+
+  z-index: 9998;
+}
+
+.header__mobile-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   МОБИЛЬНАЯ НАВИГАЦИЯ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.header__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  position: relative;
+}
+
+.header__mobile-link {
+  display: flex;
+  align-items: center;
+  padding: var(--space-5) var(--space-4);
+  position: relative;
+
+  font-size: var(--text-xl);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+
+  border-radius: var(--radius-xl);
+  transition: all 0.3s ease;
+}
+
+/* Линия-индикатор слева */
+.header__mobile-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 24px;
+  background: var(--accent-primary);
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+}
+
+.header__mobile-link:hover {
+  color: var(--text-primary);
+  background: linear-gradient(
+    90deg,
+    rgba(62, 230, 177, 0.08) 0%,
+    transparent 100%
+  );
+  padding-left: var(--space-6);
+}
+
+.header__mobile-link:hover::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.header__mobile-link.is-active {
+  color: var(--accent-primary);
+}
+
+.header__mobile-link.is-active::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+/* Staggered анимация появления пунктов меню */
+.header__mobile-nav li {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.header__mobile.is-open .header__mobile-nav li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.header__mobile.is-open .header__mobile-nav li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.header__mobile.is-open .header__mobile-nav li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+.header__mobile.is-open .header__mobile-nav li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.header__mobile.is-open .header__mobile-nav li:nth-child(4) {
+  transition-delay: 0.25s;
+}
+.header__mobile.is-open .header__mobile-nav li:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+/* CTA в мобильном меню */
+.header__mobile-cta {
+  margin-top: auto;
+  padding-top: var(--space-8);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease 0.35s, transform 0.4s ease 0.35s;
+}
+
+.header__mobile.is-open .header__mobile-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header__mobile-cta .btn {
+  width: 100%;
+  padding: var(--space-5);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+}
+
+/* Дополнительная информация внизу меню */
+.header__mobile-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.45s;
+}
+
+.header__mobile.is-open .header__mobile-footer {
+  opacity: 1;
+}
+
+.header__mobile-footer p {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BODY LOCK (предотвращение скролла при открытом меню)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   АДАПТИВНОСТЬ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  .header__mobile,
+  .header__mobile-overlay {
+    display: none;
+  }
+}

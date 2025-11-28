@@ -1,0 +1,82 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * WHY.CSS — Секция "Почему мы отличаемся"
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ WHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.why {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Премиальный фон с изображением */
+.why::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: linear-gradient(
+      135deg,
+      rgba(10, 15, 28, 0.92) 0%,
+      rgba(10, 15, 28, 0.85) 50%,
+      rgba(10, 15, 28, 0.92) 100%
+    ),
+    url("../../images/why/chaos-vs-control.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Плавные переходы сверху и снизу */
+.why::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: 
+    /* Верхний fade */ linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      rgba(2, 6, 23, 0.7) 8%,
+      rgba(2, 6, 23, 0) 20%
+    ),
+    /* Нижний fade */
+      linear-gradient(
+        0deg,
+        var(--bg-primary) 0%,
+        rgba(2, 6, 23, 0.7) 8%,
+        rgba(2, 6, 23, 0) 20%
+      ),
+    /* Акцентное свечение по центру */
+      radial-gradient(
+        ellipse at center,
+        rgba(62, 230, 177, 0.05) 0%,
+        transparent 70%
+      );
+  pointer-events: none;
+}
+
+.why > * {
+  position: relative;
+  z-index: 2;
+}
+
+.why__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .why__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+}

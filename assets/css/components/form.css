@@ -1,0 +1,390 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * FORM.CSS — Форма регистрации с Liquid Glass
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ REGISTRATION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.registration {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Фоновое изображение секции формы */
+.registration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: url("../../images/form/form-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.15;
+}
+
+/* Градиентный оверлей с плавными переходами */
+.registration::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: 
+    /* Плавные переходы сверху и снизу */ linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.85) 5%,
+    rgba(15, 23, 42, 0.9) 20%,
+    rgba(15, 23, 42, 0.9) 80%,
+    rgba(2, 6, 23, 0.85) 95%,
+    var(--bg-primary) 100%
+  );
+}
+
+.registration > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM CARD (Liquid Glass)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-card {
+  max-width: 600px;
+  margin: 0 auto;
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .form-card {
+    padding: var(--space-10);
+    border-radius: var(--glass-radius-xl);
+  }
+}
+
+.form-card__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+
+.form-card__subtitle {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM GROUP
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM LABEL
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+}
+
+.form-label__required {
+  color: var(--color-danger);
+  margin-left: var(--space-1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM INPUT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-input {
+  width: 100%;
+
+  /* Liquid Glass стиль */
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(var(--glass-blur-subtle));
+  -webkit-backdrop-filter: blur(var(--glass-blur-subtle));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+
+  padding: var(--space-4) var(--space-5);
+  min-height: 48px;
+
+  font-family: var(--font-primary);
+  font-size: var(--text-md);
+  color: var(--text-primary);
+
+  transition: border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Hover */
+.form-input:hover {
+  border-color: var(--glass-border-hover);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+/* Focus */
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-glow);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+/* Error state */
+.form-input.is-error {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(249, 115, 115, 0.2);
+}
+
+/* Success state */
+.form-input.is-success {
+  border-color: var(--color-success);
+}
+
+/* Disabled state */
+.form-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM SELECT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-select-wrapper {
+  position: relative;
+}
+
+.form-select {
+  appearance: none;
+  padding-right: var(--space-10); /* Место для иконки */
+  cursor: pointer;
+}
+
+.form-select-icon {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM TEXTAREA
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: var(--leading-relaxed);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM CHECKBOX
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+
+.form-checkbox__input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+
+  appearance: none;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.form-checkbox__input:hover {
+  border-color: var(--glass-border-hover);
+}
+
+.form-checkbox__input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-glow);
+}
+
+.form-checkbox__input:checked {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+
+  /* Checkmark */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%230F172A' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-checkbox__label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  cursor: pointer;
+}
+
+.form-checkbox__label a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+/* Error state */
+.form-checkbox.is-error .form-checkbox__input {
+  border-color: var(--color-danger);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM HINT & ERROR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-hint {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.form-error {
+  font-size: var(--text-sm);
+  color: var(--color-danger);
+  min-height: 20px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM ROW (2 колонки)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 480px) {
+  .form-row--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM ACTIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-actions {
+  margin-top: var(--space-4);
+}
+
+.form-actions .btn {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM FOOTER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--glass-border);
+
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM SUCCESS STATE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-success {
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.form-success__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(52, 211, 153, 0.1);
+  border: 2px solid var(--color-success);
+  border-radius: 50%;
+
+  color: var(--color-success);
+}
+
+.form-success__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.form-success__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.form-success__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+}

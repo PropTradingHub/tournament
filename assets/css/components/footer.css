@@ -1,0 +1,322 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * FOOTER.CSS — Нижний колонтитул
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.footer {
+  position: relative;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-8);
+
+  /* Фон */
+  background: rgba(2, 6, 23, 0.95);
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CTA SECTION (Финальный призыв к действию)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.footer__cta {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  padding: var(--space-10) var(--space-6);
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+}
+
+.footer__cta-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .footer__cta-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+.footer__cta-text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER GRID
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.footer__grid {
+  display: grid;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-10);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER COLUMNS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Footer columns - стили определены в дочерних элементах */
+
+/* Логотип */
+.footer__logo {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.footer__logo:hover {
+  opacity: 0.8;
+}
+
+.footer__logo img {
+  height: 36px;
+  width: auto;
+}
+
+/* Описание */
+.footer__about {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  line-height: var(--leading-relaxed);
+  max-width: 280px;
+}
+
+/* Заголовок колонки */
+.footer__title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Список ссылок */
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__link {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer__link:hover {
+  color: var(--accent-primary);
+}
+
+/* Внешние ссылки с иконкой */
+.footer__link--external::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SOCIAL ICONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.footer__social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+
+  color: var(--text-tertiary);
+
+  transition: var(--transition-fast);
+}
+
+.footer__social-link:hover {
+  background: rgba(62, 230, 177, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.footer__social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOOTER BOTTOM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--glass-border);
+}
+
+@media (min-width: 768px) {
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Copyright */
+.footer__copyright {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* Legal links */
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer__legal-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer__legal-link:hover {
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DISCLAIMER (Риск-дисклеймер)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.footer__disclaimer {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  text-align: center;
+}
+
+.footer__disclaimer-icon {
+  width: 48px;
+  height: 48px;
+  opacity: 0.7;
+}
+
+.footer__disclaimer p {
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PARTNERS SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.partners {
+  padding-block: var(--section-padding);
+}
+
+.partners__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .partners__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.partner-card {
+  text-align: center;
+  padding: var(--space-8);
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  transition: var(--transition-normal);
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+.partner-card__logo {
+  width: 120px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  margin: 0 auto var(--space-5);
+  opacity: 0.9;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.partner-card:hover .partner-card__logo {
+  opacity: 1;
+}
+
+.partner-card__name {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.partner-card__desc {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}

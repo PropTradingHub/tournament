@@ -1,0 +1,248 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * FAQ.CSS — Аккордеон часто задаваемых вопросов
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ FAQ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq {
+  padding-block: var(--section-padding);
+  position: relative;
+}
+
+/* Плавные переходы сверху и снизу */
+.faq::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.faq::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    0deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ ICON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq__icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+}
+
+.faq__icon-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+
+  /* Премиальное свечение */
+  filter: drop-shadow(0 0 30px var(--accent-primary-glow));
+
+  /* Анимация при появлении */
+  transition: transform var(--duration-normal) var(--ease-out),
+    filter var(--duration-normal) var(--ease-out);
+}
+
+.faq__icon-wrapper:hover .faq__icon-image {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 50px var(--accent-primary-glow));
+}
+
+@media (min-width: 768px) {
+  .faq__icon-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ CONTAINER (Liquid Glass панель)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq__container {
+  max-width: 800px;
+  margin: 0 auto;
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .faq__container {
+    padding: var(--space-8);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ ITEM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq__item {
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.faq__item:last-child {
+  border-bottom: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ TRIGGER (Кнопка вопроса)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  width: 100%;
+  padding: var(--space-5) 0;
+
+  font-family: var(--font-primary);
+  font-size: var(--text-md);
+  font-weight: var(--font-semibold);
+  text-align: left;
+  color: var(--text-primary);
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.faq__trigger:hover {
+  color: var(--accent-primary);
+}
+
+@media (min-width: 768px) {
+  .faq__trigger {
+    font-size: var(--text-lg);
+    padding: var(--space-6) 0;
+  }
+}
+
+/* Текст вопроса */
+.faq__question {
+  flex: 1;
+  line-height: var(--leading-snug);
+}
+
+/* Иконка (chevron) */
+.faq__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--text-tertiary);
+
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+/* Поворот иконки при открытии */
+.faq__item.is-open .faq__icon {
+  transform: rotate(180deg);
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FAQ CONTENT (Ответ)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq__content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+
+  transition: max-height var(--duration-moderate) var(--ease-smooth),
+    opacity var(--duration-normal) var(--ease-out),
+    padding var(--duration-normal) var(--ease-out);
+}
+
+.faq__item.is-open .faq__content {
+  max-height: 1000px; /* Достаточно для длинных ответов */
+  opacity: 1;
+  padding-bottom: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .faq__item.is-open .faq__content {
+    padding-bottom: var(--space-6);
+  }
+}
+
+/* Текст ответа */
+.faq__answer {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  padding-right: var(--space-8); /* Отступ от иконки */
+}
+
+.faq__answer p {
+  margin-bottom: var(--space-3);
+}
+
+.faq__answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Ссылки в ответе */
+.faq__answer a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.faq__answer a:hover {
+  color: var(--accent-primary-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ДОСТУПНОСТЬ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.faq__trigger:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Скрытый контент для screen readers */
+.faq__content[hidden] {
+  display: none;
+}

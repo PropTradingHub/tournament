@@ -1,0 +1,390 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * FEATURES.CSS — Секции с карточками фич
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Секции "Что это за турнир", "Для кого турнир", "Почему не казино" и др.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ "ЧТО ЭТО ЗА ТУРНИР" (ABOUT)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.about {
+  padding-block: var(--section-padding);
+  position: relative;
+}
+
+/* Плавный верхний переход от hero */
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .about__card {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-12);
+  }
+}
+
+.about__content {
+  flex: 1;
+}
+
+.about__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .about__title {
+    font-size: var(--text-3xl);
+  }
+}
+
+.about__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.about__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Визуал справа */
+.about__visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+/* Placeholder если нет изображения */
+.about__visual:empty,
+.about__visual:has(span) {
+  background: rgba(62, 230, 177, 0.05);
+  border: 1px dashed rgba(62, 230, 177, 0.2);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Изображение в визуале */
+.about__image {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+
+  /* Эффект свечения */
+  box-shadow: 0 0 40px rgba(62, 230, 177, 0.15), 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .about__visual {
+    min-height: 350px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ "ДЛЯ КОГО ТУРНИР" (AUDIENCE)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.audience {
+  padding-block: var(--section-padding);
+}
+
+.audience__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .audience__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ "ПОЧЕМУ НЕ КАЗИНО" (WHY)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.why {
+  padding-block: var(--section-padding);
+  position: relative;
+}
+
+.why::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.9) 0%,
+      rgba(15, 23, 42, 0.98) 100%
+    ),
+    url("../../images/why/chaos-vs-control.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.why__grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .why__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ "КАК СЧИТАЕМ РЕЗУЛЬТАТ" (CALCULATION)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.calculation {
+  padding-block: var(--section-padding);
+}
+
+.calculation__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .calculation__card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-12);
+    padding: var(--space-12);
+  }
+}
+
+.calculation__content {
+  flex: 1;
+}
+
+.calculation__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.calculation__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+/* Формула */
+.calculation__formula {
+  display: block;
+  padding: var(--space-4);
+  margin: var(--space-4) 0;
+
+  background: rgba(62, 230, 177, 0.05);
+  border: 1px solid rgba(62, 230, 177, 0.2);
+  border-radius: var(--radius-lg);
+
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent-primary);
+  text-align: center;
+}
+
+/* Визуал (схема) */
+.calculation__visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px dashed rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-xl);
+
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   УНИВЕРСАЛЬНАЯ FEATURE CARD (для всех секций)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.feature-card {
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-8);
+
+  transition: transform var(--duration-normal) var(--ease-smooth),
+    box-shadow var(--duration-normal) var(--ease-smooth),
+    border-color var(--duration-normal) var(--ease-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Иконка */
+.feature-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-5);
+
+  background: rgba(62, 230, 177, 0.1);
+  border: 1px solid rgba(62, 230, 177, 0.2);
+  border-radius: var(--radius-lg);
+
+  color: var(--accent-primary);
+
+  transition: var(--transition-normal);
+}
+
+.feature-card:hover .feature-card__icon {
+  background: rgba(62, 230, 177, 0.15);
+  box-shadow: 0 0 30px rgba(62, 230, 177, 0.2);
+}
+
+.feature-card__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature-card__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+/* Альтернативный цвет иконки (синий) */
+.feature-card--blue .feature-card__icon {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+  color: var(--accent-secondary);
+}
+
+.feature-card--blue:hover .feature-card__icon {
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Заголовок */
+.feature-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+/* Описание */
+.feature-card__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.feature-card__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Список */
+.feature-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.feature-card__list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+.feature-card__list-item::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 0.5em;
+  background: var(--accent-primary);
+  border-radius: 50%;
+}

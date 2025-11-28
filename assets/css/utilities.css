@@ -1,0 +1,784 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * UTILITIES.CSS — Утилитарные классы
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Вспомогательные классы для быстрой стилизации.
+ * Импортируется последним для переопределения.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DISPLAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hidden {
+  display: none !important;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.grid {
+  display: grid;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FLEXBOX
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.flex-col {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Justify Content */
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Align Items */
+.items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-stretch {
+  align-items: stretch;
+}
+.items-baseline {
+  align-items: baseline;
+}
+
+/* Align Self */
+.self-start {
+  align-self: flex-start;
+}
+.self-center {
+  align-self: center;
+}
+.self-end {
+  align-self: flex-end;
+}
+
+/* Flex Grow/Shrink */
+.flex-1 {
+  flex: 1 1 0%;
+}
+.flex-auto {
+  flex: 1 1 auto;
+}
+.flex-none {
+  flex: none;
+}
+.grow {
+  flex-grow: 1;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GAP
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.gap-1 {
+  gap: var(--space-1);
+}
+.gap-2 {
+  gap: var(--space-2);
+}
+.gap-3 {
+  gap: var(--space-3);
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-5 {
+  gap: var(--space-5);
+}
+.gap-6 {
+  gap: var(--space-6);
+}
+.gap-8 {
+  gap: var(--space-8);
+}
+.gap-10 {
+  gap: var(--space-10);
+}
+.gap-12 {
+  gap: var(--space-12);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPACING — Margin
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Margin All */
+.m-0 {
+  margin: 0;
+}
+.m-auto {
+  margin: auto;
+}
+
+/* Margin Top */
+.mt-0 {
+  margin-top: 0;
+}
+.mt-2 {
+  margin-top: var(--space-2);
+}
+.mt-4 {
+  margin-top: var(--space-4);
+}
+.mt-6 {
+  margin-top: var(--space-6);
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+.mt-10 {
+  margin-top: var(--space-10);
+}
+.mt-12 {
+  margin-top: var(--space-12);
+}
+.mt-16 {
+  margin-top: var(--space-16);
+}
+
+/* Margin Bottom */
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-2 {
+  margin-bottom: var(--space-2);
+}
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+.mb-6 {
+  margin-bottom: var(--space-6);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.mb-10 {
+  margin-bottom: var(--space-10);
+}
+.mb-12 {
+  margin-bottom: var(--space-12);
+}
+.mb-16 {
+  margin-bottom: var(--space-16);
+}
+
+/* Margin Inline (left + right) */
+.mx-auto {
+  margin-inline: auto;
+}
+.mx-4 {
+  margin-inline: var(--space-4);
+}
+
+/* Margin Block (top + bottom) */
+.my-4 {
+  margin-block: var(--space-4);
+}
+.my-8 {
+  margin-block: var(--space-8);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SPACING — Padding
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Padding All */
+.p-0 {
+  padding: 0;
+}
+.p-2 {
+  padding: var(--space-2);
+}
+.p-3 {
+  padding: var(--space-3);
+}
+.p-4 {
+  padding: var(--space-4);
+}
+.p-5 {
+  padding: var(--space-5);
+}
+.p-6 {
+  padding: var(--space-6);
+}
+.p-8 {
+  padding: var(--space-8);
+}
+.p-10 {
+  padding: var(--space-10);
+}
+
+/* Padding Inline */
+.px-4 {
+  padding-inline: var(--space-4);
+}
+.px-6 {
+  padding-inline: var(--space-6);
+}
+.px-8 {
+  padding-inline: var(--space-8);
+}
+
+/* Padding Block */
+.py-4 {
+  padding-block: var(--space-4);
+}
+.py-6 {
+  padding-block: var(--space-6);
+}
+.py-8 {
+  padding-block: var(--space-8);
+}
+.py-12 {
+  padding-block: var(--space-12);
+}
+.py-16 {
+  padding-block: var(--space-16);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WIDTH & HEIGHT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.w-full {
+  width: 100%;
+}
+.w-auto {
+  width: auto;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.min-w-0 {
+  min-width: 0;
+}
+
+.h-full {
+  height: 100%;
+}
+.h-auto {
+  height: auto;
+}
+.h-screen {
+  height: 100vh;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXT ALIGNMENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXT SIZE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-xs {
+  font-size: var(--text-xs);
+}
+.text-sm {
+  font-size: var(--text-sm);
+}
+.text-md {
+  font-size: var(--text-md);
+}
+.text-lg {
+  font-size: var(--text-lg);
+}
+.text-xl {
+  font-size: var(--text-xl);
+}
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+.text-3xl {
+  font-size: var(--text-3xl);
+}
+.text-4xl {
+  font-size: var(--text-4xl);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FONT WEIGHT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.font-light {
+  font-weight: var(--font-light);
+}
+.font-regular {
+  font-weight: var(--font-regular);
+}
+.font-medium {
+  font-weight: var(--font-medium);
+}
+.font-semibold {
+  font-weight: var(--font-semibold);
+}
+.font-bold {
+  font-weight: var(--font-bold);
+}
+.font-extrabold {
+  font-weight: var(--font-extrabold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXT COLOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.text-primary {
+  color: var(--text-primary);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.text-accent {
+  color: var(--accent-primary);
+}
+.text-accent-secondary {
+  color: var(--accent-secondary);
+}
+.text-success {
+  color: var(--color-success);
+}
+.text-danger {
+  color: var(--color-danger);
+}
+.text-warning {
+  color: var(--color-warning);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BACKGROUND
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.bg-transparent {
+  background: transparent;
+}
+.bg-primary {
+  background: var(--bg-primary);
+}
+.bg-secondary {
+  background: var(--bg-secondary);
+}
+.bg-glass {
+  background: var(--glass-bg);
+}
+.bg-accent {
+  background: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BORDER RADIUS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.rounded-none {
+  border-radius: 0;
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+.rounded-2xl {
+  border-radius: var(--radius-2xl);
+}
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SHADOWS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.shadow-none {
+  box-shadow: none;
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+.shadow-glass {
+  box-shadow: var(--shadow-glass);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   POSITION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.sticky {
+  position: sticky;
+}
+
+.inset-0 {
+  inset: 0;
+}
+.top-0 {
+  top: 0;
+}
+.right-0 {
+  right: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.left-0 {
+  left: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Z-INDEX
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.z-0 {
+  z-index: 0;
+}
+.z-10 {
+  z-index: 10;
+}
+.z-20 {
+  z-index: 20;
+}
+.z-30 {
+  z-index: 30;
+}
+.z-dropdown {
+  z-index: var(--z-dropdown);
+}
+.z-sticky {
+  z-index: var(--z-sticky);
+}
+.z-fixed {
+  z-index: var(--z-fixed);
+}
+.z-modal {
+  z-index: var(--z-modal);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   OVERFLOW
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-auto {
+  overflow: auto;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   POINTER EVENTS & CURSOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.pointer-events-none {
+  pointer-events: none;
+}
+.pointer-events-auto {
+  pointer-events: auto;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   OPACITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-75 {
+  opacity: 0.75;
+}
+.opacity-100 {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WHITESPACE & TEXT OVERFLOW
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+.whitespace-normal {
+  white-space: normal;
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Скрытие на разных экранах */
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Показ на разных экранах */
+@media (max-width: 767px) {
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .show-tablet-only {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .show-desktop {
+    display: block !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SR-ONLY (Screen Reader)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTION FADE TRANSITIONS — Плавные переходы между секциями
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Базовый класс для секции с fade эффектами */
+.section-fade {
+  position: relative;
+}
+
+/* Верхний fade (от прозрачного к фону) */
+.section-fade--top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.8) 30%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Нижний fade (к фону) */
+.section-fade--bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    0deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.8) 30%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Комбинированный fade (верх + низ) */
+.section-fade--both::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.section-fade--both::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    0deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Fade для изображений внутри контейнера */
+.img-fade {
+  position: relative;
+}
+
+.img-fade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0) 0%,
+    rgba(2, 6, 23, 0) 60%,
+    rgba(2, 6, 23, 0.7) 85%,
+    var(--bg-primary) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Мягкий fade для изображений (все стороны) */
+.img-fade--soft::after {
+  background: linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.3) 0%,
+      rgba(2, 6, 23, 0) 15%,
+      rgba(2, 6, 23, 0) 85%,
+      rgba(2, 6, 23, 0.5) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(2, 6, 23, 0.2) 0%,
+      rgba(2, 6, 23, 0) 10%,
+      rgba(2, 6, 23, 0) 90%,
+      rgba(2, 6, 23, 0.2) 100%
+    );
+}

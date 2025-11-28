@@ -1,0 +1,415 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * HERO.CSS — Hero секция с видео и Liquid Glass
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Полноэкранная Hero секция с фоновым видео, параллакс и анимациями.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height для мобильных */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Отступ для хедера */
+  padding-top: var(--header-height);
+
+  /* Фоновое изображение (fallback для видео) */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Мобильная версия — фиксируем пропорции фона */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    background-position: 50% 30%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ВИДЕО ФОН
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__video-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+
+  /* Небольшой zoom для параллакс эффекта */
+  transform: scale(1.1);
+}
+
+/* Мобильная версия — отключаем zoom для производительности */
+@media (max-width: 768px) {
+  .hero__video {
+    transform: scale(1);
+    object-position: center 30%;
+  }
+}
+
+/* Fallback изображение если видео не загрузилось */
+.hero__video-fallback {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  display: none;
+}
+
+.hero__video.is-error + .hero__video-fallback {
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ОВЕРЛЕЙ ЗАТЕМНЕНИЯ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  /* Градиент для читаемости текста + плавный переход внизу */
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.7) 0%,
+    rgba(2, 6, 23, 0.5) 40%,
+    rgba(2, 6, 23, 0.5) 60%,
+    rgba(2, 6, 23, 0.75) 80%,
+    rgba(2, 6, 23, 0.95) 95%,
+    var(--bg-primary) 100%
+  );
+}
+
+/* Дополнительный нижний fade для бесшовного перехода */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: 3;
+  background: linear-gradient(
+    0deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.9) 40%,
+    rgba(2, 6, 23, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO КОНТЕНТ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: var(--space-8) var(--container-padding);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO GLASS CARD (Главная карточка)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  /* Анимация входа */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroCardIn 1s var(--ease-out-expo) 0.2s forwards;
+}
+
+@keyframes heroCardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__card {
+    padding: var(--space-12) var(--space-10);
+    border-radius: var(--glass-radius-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__card {
+    padding: var(--space-16) var(--space-12);
+    border-radius: var(--glass-radius-3xl);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO BADGE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__badge {
+  margin-bottom: var(--space-6);
+
+  /* Анимация */
+  opacity: 0;
+  animation: fadeIn var(--duration-slow) var(--ease-out) 0.4s forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO TITLE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+
+  /* Анимация */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroTextIn 0.8s var(--ease-out-expo) 0.5s forwards;
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: var(--text-5xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__title {
+    font-size: var(--text-6xl);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO PARTNERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__partners {
+  font-size: var(--text-md);
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-6);
+
+  /* Анимация */
+  opacity: 0;
+  animation: fadeIn var(--duration-slow) var(--ease-out) 0.6s forwards;
+}
+
+.hero__partners strong {
+  color: var(--accent-primary);
+  font-weight: var(--font-semibold);
+}
+
+@media (min-width: 768px) {
+  .hero__partners {
+    font-size: var(--text-lg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO SUBTITLE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__subtitle {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+
+  /* Анимация */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroTextIn 0.8s var(--ease-out-expo) 0.7s forwards;
+}
+
+@media (min-width: 768px) {
+  .hero__subtitle {
+    font-size: var(--text-lg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO BENEFITS LIST
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+
+  /* Анимация */
+  opacity: 0;
+  animation: fadeIn var(--duration-slow) var(--ease-out) 0.8s forwards;
+}
+
+.hero__benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.hero__benefit-icon {
+  flex-shrink: 0;
+  font-size: var(--text-lg);
+}
+
+@media (min-width: 768px) {
+  .hero__benefit {
+    font-size: var(--text-md);
+  }
+
+  .hero__benefits {
+    gap: var(--space-4);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO ACTIONS (КНОПКИ)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+
+  /* Анимация */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroTextIn 0.8s var(--ease-out-expo) 0.9s forwards;
+}
+
+@media (min-width: 480px) {
+  .hero__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO NOTE (Подтекст)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__note {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-style: italic;
+
+  /* Анимация */
+  opacity: 0;
+  animation: fadeIn var(--duration-slow) var(--ease-out) 1s forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL INDICATOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+
+  color: var(--text-muted);
+
+  /* Анимация появления */
+  opacity: 0;
+  animation: fadeIn var(--duration-slower) var(--ease-out) 1.5s forwards;
+}
+
+.hero__scroll-text {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+}
+
+.hero__scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+
+  /* Bounce анимация */
+  animation: scrollBounce 2s infinite;
+}
+
+/* Скрыть на мобильных когда мало места */
+@media (max-height: 700px) {
+  .hero__scroll-indicator {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__card,
+  .hero__badge,
+  .hero__title,
+  .hero__partners,
+  .hero__subtitle,
+  .hero__benefits,
+  .hero__actions,
+  .hero__note,
+  .hero__scroll-indicator {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero__scroll-indicator {
+    display: none;
+  }
+}

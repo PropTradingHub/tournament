@@ -1,0 +1,568 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * LEADERBOARD.CSS — Премиальный лидерборд с Liquid Glass
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Таблица рейтинга для десктопа и карточки для мобильных.
+ * Специальные стили для Top 3 с золотым, серебряным и бронзовым свечением.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ LEADERBOARD
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Фоновое изображение лидерборда */
+.leaderboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: url("../../images/leaderboard/table-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Градиентный оверлей с плавными переходами */
+.leaderboard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: 
+    /* Плавные переходы сверху и снизу */ linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.9) 5%,
+    rgba(15, 23, 42, 0.75) 15%,
+    rgba(15, 23, 42, 0.75) 85%,
+    rgba(2, 6, 23, 0.9) 95%,
+    var(--bg-primary) 100%
+  );
+  pointer-events: none;
+}
+
+.leaderboard > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE WRAPPER (Desktop)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__table-wrapper {
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-6);
+  overflow-x: auto;
+
+  /* Скрыть на мобильных */
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .leaderboard__table-wrapper {
+    display: block;
+  }
+}
+
+/* Стилизация скроллбара внутри таблицы */
+.leaderboard__table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.leaderboard__table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+.leaderboard__table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: separate;
+  border-spacing: 0 var(--space-2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE HEAD
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__head {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.leaderboard__th {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--text-muted);
+
+  background: rgba(2, 6, 23, 0.8);
+  border-bottom: 1px solid var(--glass-border);
+  white-space: nowrap;
+}
+
+.leaderboard__th--rank {
+  width: 80px;
+}
+
+.leaderboard__th--pnl {
+  text-align: right;
+}
+
+.leaderboard__th--country {
+  width: 80px;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE ROW
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__row {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-normal);
+}
+
+.leaderboard__row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TABLE CELLS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__td {
+  padding: var(--space-4);
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.leaderboard__td:first-child {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.leaderboard__td:last-child {
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* Rank column */
+.leaderboard__rank {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.leaderboard__medal {
+  font-size: var(--text-xl);
+}
+
+.leaderboard__rank-number {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+}
+
+/* Trader column */
+.leaderboard__trader {
+  font-weight: var(--font-semibold);
+}
+
+/* Capital column */
+.leaderboard__capital {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+/* PnL column */
+.leaderboard__pnl {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+  text-align: right;
+}
+
+.leaderboard__pnl--positive {
+  color: var(--accent-primary);
+}
+
+.leaderboard__pnl--negative {
+  color: var(--color-danger);
+}
+
+/* MaxDD column */
+.leaderboard__maxdd {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+/* Best challenge column */
+.leaderboard__best {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--accent-secondary);
+}
+
+/* Country column */
+.leaderboard__flag {
+  font-size: var(--text-xl);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOP 3 SPECIAL STYLES (Desktop)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 🥇 ПЕРВОЕ МЕСТО */
+.leaderboard__row--rank-1 {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.12) 0%,
+    rgba(255, 215, 0, 0.05) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: inset 0 0 0 1px rgba(255, 215, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.15);
+
+  /* Пульсация */
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+.leaderboard__row--rank-1:hover {
+  box-shadow: inset 0 0 0 1px rgba(255, 215, 0, 0.5),
+    0 0 50px rgba(255, 215, 0, 0.25);
+  transform: translateX(8px) scale(1.01);
+}
+
+.leaderboard__row--rank-1 .leaderboard__rank-number {
+  color: var(--rank-gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.leaderboard__row--rank-1 .leaderboard__pnl {
+  color: var(--rank-gold);
+}
+
+/* 🥈 ВТОРОЕ МЕСТО */
+.leaderboard__row--rank-2 {
+  background: linear-gradient(
+    90deg,
+    rgba(192, 192, 192, 0.1) 0%,
+    rgba(192, 192, 192, 0.03) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: inset 0 0 0 1px rgba(192, 192, 192, 0.25);
+}
+
+.leaderboard__row--rank-2:hover {
+  box-shadow: inset 0 0 0 1px rgba(192, 192, 192, 0.4),
+    0 0 30px rgba(192, 192, 192, 0.15);
+  transform: translateX(8px);
+}
+
+.leaderboard__row--rank-2 .leaderboard__rank-number {
+  color: var(--rank-silver);
+}
+
+/* 🥉 ТРЕТЬЕ МЕСТО */
+.leaderboard__row--rank-3 {
+  background: linear-gradient(
+    90deg,
+    rgba(205, 127, 50, 0.1) 0%,
+    rgba(205, 127, 50, 0.03) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  box-shadow: inset 0 0 0 1px rgba(205, 127, 50, 0.25);
+}
+
+.leaderboard__row--rank-3:hover {
+  box-shadow: inset 0 0 0 1px rgba(205, 127, 50, 0.4),
+    0 0 30px rgba(205, 127, 50, 0.15);
+  transform: translateX(8px);
+}
+
+.leaderboard__row--rank-3 .leaderboard__rank-number {
+  color: var(--rank-bronze);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE CARDS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .leaderboard__cards {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE CARD
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard-card {
+  position: relative;
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-lg);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-5);
+
+  transition: var(--transition-normal);
+}
+
+.leaderboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+/* Header */
+.leaderboard-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.leaderboard-card__medal {
+  font-size: var(--text-2xl);
+}
+
+.leaderboard-card__rank {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+}
+
+.leaderboard-card__trader {
+  flex: 1;
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.leaderboard-card__flag {
+  font-size: var(--text-xl);
+}
+
+/* PnL (главный показатель) */
+.leaderboard-card__pnl {
+  text-align: center;
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-4);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.leaderboard-card__pnl-value {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+}
+
+.leaderboard-card__pnl-value--positive {
+  color: var(--accent-primary);
+}
+
+.leaderboard-card__pnl-value--negative {
+  color: var(--color-danger);
+}
+
+.leaderboard-card__pnl-label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Stats grid */
+.leaderboard-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.leaderboard-card__stat-value {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+}
+
+.leaderboard-card__stat-label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TOP 3 MOBILE CARDS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 🥇 ПЕРВОЕ МЕСТО */
+.leaderboard-card--rank-1 {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.12) 0%,
+    var(--glass-bg) 100%
+  );
+  border: 2px solid var(--rank-gold-border);
+  box-shadow: var(--shadow-glass), 0 0 40px var(--rank-gold-glow);
+
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+.leaderboard-card--rank-1 .leaderboard-card__rank {
+  color: var(--rank-gold);
+}
+
+.leaderboard-card--rank-1 .leaderboard-card__pnl-value {
+  color: var(--rank-gold);
+}
+
+/* 🥈 ВТОРОЕ МЕСТО */
+.leaderboard-card--rank-2 {
+  background: linear-gradient(
+    135deg,
+    rgba(192, 192, 192, 0.1) 0%,
+    var(--glass-bg) 100%
+  );
+  border: 2px solid var(--rank-silver-border);
+  box-shadow: var(--shadow-glass), 0 0 25px var(--rank-silver-glow);
+}
+
+.leaderboard-card--rank-2 .leaderboard-card__rank {
+  color: var(--rank-silver);
+}
+
+/* 🥉 ТРЕТЬЕ МЕСТО */
+.leaderboard-card--rank-3 {
+  background: linear-gradient(
+    135deg,
+    rgba(205, 127, 50, 0.1) 0%,
+    var(--glass-bg) 100%
+  );
+  border: 2px solid var(--rank-bronze-border);
+  box-shadow: var(--shadow-glass), 0 0 25px var(--rank-bronze-glow);
+}
+
+.leaderboard-card--rank-3 .leaderboard-card__rank {
+  color: var(--rank-bronze);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NOTE (Подпись под таблицей)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.leaderboard__note {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-lg);
+
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Появление строк с задержкой */
+.leaderboard__row,
+.leaderboard-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.leaderboard__row.aos-animate,
+.leaderboard-card.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.leaderboard__row:nth-child(1),
+.leaderboard-card:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.leaderboard__row:nth-child(2),
+.leaderboard-card:nth-child(2) {
+  transition-delay: 50ms;
+}
+
+.leaderboard__row:nth-child(3),
+.leaderboard-card:nth-child(3) {
+  transition-delay: 100ms;
+}
+
+.leaderboard__row:nth-child(4),
+.leaderboard-card:nth-child(4) {
+  transition-delay: 150ms;
+}
+
+.leaderboard__row:nth-child(5),
+.leaderboard-card:nth-child(5) {
+  transition-delay: 200ms;
+}
+
+.leaderboard__row:nth-child(n + 6),
+.leaderboard-card:nth-child(n + 6) {
+  transition-delay: 250ms;
+}

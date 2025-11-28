@@ -1,0 +1,435 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * BASE.CSS — Базовые стили элементов
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Определяет базовые стили для HTML элементов: body, typography, links.
+ * Создаёт основу визуального языка проекта.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BODY — Основной контейнер
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-md);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+
+  /* Космический градиентный фон */
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+
+  /* Минимальная высота экрана */
+  min-height: 100vh;
+
+  /* Overflow для мобильного меню */
+  overflow-x: hidden;
+}
+
+/* Фикс для iOS где background-attachment: fixed не работает */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+    background-size: 100% 100%;
+  }
+}
+
+/* Мобильная версия - убираем fixed для производительности */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: 200% 200%;
+    background-position: center;
+  }
+}
+
+/* Noise текстура поверх фона для премиального вида */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  /* Noise текстура для премиального вида */
+  background-image: url("../images/misc/noise.png");
+  background-repeat: repeat;
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Декоративные градиентные пятна на фоне */
+body::after {
+  content: "";
+  position: fixed;
+  top: 10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    var(--accent-primary-glow) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   КОНТЕЙНЕР
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Вариации контейнера */
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1440px;
+}
+
+.container--full {
+  max-width: none;
+  padding-inline: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИИ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.section {
+  padding-block: var(--section-padding);
+  position: relative;
+}
+
+/* Заголовок секции */
+.section__header {
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+}
+
+.section__badge {
+  margin-bottom: var(--space-4);
+}
+
+.section__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+}
+
+.section__subtitle {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Адаптивность заголовков секций */
+@media (min-width: 768px) {
+  .section__title {
+    font-size: var(--text-3xl);
+  }
+
+  .section__subtitle {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section__title {
+    font-size: var(--text-5xl);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ТИПОГРАФИЯ — Заголовки
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-extrabold);
+  letter-spacing: var(--tracking-tight);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+}
+
+h6 {
+  font-size: var(--text-md);
+  font-weight: var(--font-semibold);
+}
+
+/* Адаптивность заголовков */
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--text-5xl);
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+  }
+
+  h3 {
+    font-size: var(--text-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: var(--text-6xl);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ТИПОГРАФИЯ — Параграфы и текст
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--text-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Выделение текста */
+strong,
+b {
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+}
+
+/* Код inline */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: var(--space-1) var(--space-2);
+  background: var(--glass-bg);
+  border-radius: var(--radius-sm);
+  color: var(--accent-primary);
+}
+
+/* Блок кода */
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--space-4);
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ССЫЛКИ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: var(--accent-primary-hover);
+}
+
+/* Ссылка с подчёркиванием */
+.link {
+  position: relative;
+  color: var(--text-primary);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link:hover {
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СПИСКИ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Стилизованный список */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--text-secondary);
+}
+
+.list__item::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 0.6em;
+  background: var(--accent-primary);
+  border-radius: 50%;
+}
+
+/* Список с иконками */
+.list--icons .list__item::before {
+  display: none;
+}
+
+.list__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   РАЗДЕЛИТЕЛИ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--glass-border);
+  margin-block: var(--space-8);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ИЗОБРАЖЕНИЯ
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Изображение с закруглением */
+.img--rounded {
+  border-radius: var(--radius-lg);
+}
+
+/* Изображение в рамке glass */
+.img--glass {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   БЛОКQUOTE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+blockquote {
+  position: relative;
+  padding-left: var(--space-6);
+  margin-block: var(--space-6);
+  border-left: 3px solid var(--accent-primary);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ТАБЛИЦЫ (базовые)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: var(--font-semibold);
+  color: var(--text-tertiary);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+td {
+  padding: var(--space-3);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}

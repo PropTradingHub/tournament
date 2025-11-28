@@ -1,0 +1,183 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * MODAL.CSS — Модальные окна с Liquid Glass
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL OVERLAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal-backdrop);
+
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  /* Скрыто по умолчанию */
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity var(--duration-normal) var(--ease-out),
+    visibility var(--duration-normal);
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  z-index: var(--z-modal);
+
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-2xl);
+
+  overflow-y: auto;
+
+  /* Скрыто по умолчанию */
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-out-expo),
+    visibility var(--duration-normal);
+}
+
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL HEADER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.modal__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL CLOSE BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal__close {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+
+  color: var(--text-tertiary);
+  cursor: pointer;
+
+  transition: var(--transition-fast);
+}
+
+.modal__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.modal__close:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.modal__close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL BODY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal__body {
+  padding: var(--space-6);
+}
+
+.modal__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL FOOTER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+
+  padding: var(--space-6);
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL SIZES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal--sm {
+  max-width: 400px;
+}
+
+.modal--lg {
+  max-width: 700px;
+}
+
+.modal--xl {
+  max-width: 900px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BODY SCROLL LOCK
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body.modal-open {
+  overflow: hidden;
+}

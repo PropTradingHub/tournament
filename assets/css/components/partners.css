@@ -1,0 +1,87 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * PARTNERS.CSS — Секция организаторов
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ PARTNERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.partners {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Премиальный фон */
+.partners::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: linear-gradient(
+      180deg,
+      rgba(10, 15, 28, 0.9) 0%,
+      rgba(10, 15, 28, 0.85) 50%,
+      rgba(10, 15, 28, 0.9) 100%
+    ),
+    url("../../images/partners/partners-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Плавные переходы + свечение */
+.partners::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: 
+    /* Плавный верхний fade */ linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      rgba(2, 6, 23, 0.7) 8%,
+      rgba(2, 6, 23, 0) 20%
+    ),
+    /* Плавный нижний fade */
+      linear-gradient(
+        0deg,
+        var(--bg-primary) 0%,
+        rgba(2, 6, 23, 0.7) 8%,
+        rgba(2, 6, 23, 0) 20%
+      ),
+    /* Свечение по краям */
+      radial-gradient(
+        ellipse at 20% 50%,
+        rgba(62, 230, 177, 0.08) 0%,
+        transparent 50%
+      ),
+    radial-gradient(
+      ellipse at 80% 50%,
+      rgba(96, 165, 250, 0.08) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.partners > * {
+  position: relative;
+  z-index: 2;
+}
+
+.partners__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .partners__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}

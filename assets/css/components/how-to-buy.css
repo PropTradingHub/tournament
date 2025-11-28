@@ -1,0 +1,180 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * HOW-TO-BUY.CSS — Блок "Как купить челлендж"
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ */
+
+.how-to-buy {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Фоновое изображение секции */
+.how-to-buy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: url("../../images/steps/steps-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Градиентный оверлей с плавными переходами */
+.how-to-buy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: 
+    /* Плавные переходы сверху и снизу */ linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.85) 5%,
+    rgba(15, 23, 42, 0.9) 15%,
+    rgba(15, 23, 42, 0.9) 85%,
+    rgba(2, 6, 23, 0.85) 95%,
+    var(--bg-primary) 100%
+  );
+  pointer-events: none;
+}
+
+.how-to-buy > * {
+  position: relative;
+  z-index: 2;
+}
+
+.how-to-buy__card {
+  max-width: 800px;
+  margin-inline: auto;
+
+  /* Liquid Glass */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass);
+
+  padding: var(--space-8);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .how-to-buy__card {
+    padding: var(--space-12);
+  }
+}
+
+.how-to-buy__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .how-to-buy__title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* Шаги */
+.how-to-buy__steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-8);
+  text-align: left;
+}
+
+.how-to-buy__step {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.how-to-buy__step:last-child {
+  border-bottom: none;
+}
+
+.how-to-buy__number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  color: var(--bg-primary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  border-radius: 50%;
+}
+
+.how-to-buy__step p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  padding-top: 6px;
+}
+
+.how-to-buy__step strong {
+  color: var(--text-primary);
+}
+
+/* Промокод */
+.how-to-buy__promo {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(62, 230, 177, 0.15);
+  border: 1px solid rgba(62, 230, 177, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* Кнопка */
+.how-to-buy__action {
+  margin-top: var(--space-8);
+}
+
+.how-to-buy__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.how-to-buy__btn svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.how-to-buy__btn:hover svg {
+  transform: translate(3px, -3px);
+}
+
+@media (min-width: 480px) {
+  .how-to-buy__btn {
+    width: auto;
+    min-width: 280px;
+  }
+}

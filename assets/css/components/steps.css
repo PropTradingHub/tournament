@@ -1,0 +1,417 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * STEPS.CSS — Timeline шагов
+ * Global Traders Championship | Liquid Glass Design System
+ * ═══════════════════════════════════════════════════════════════════════════
+ * 
+ * Вертикальный timeline "Как это работает" и "Этапы турнира".
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ STEPS (КАК ЭТО РАБОТАЕТ)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.steps {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Фоновое изображение секции */
+.steps::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: url("../../images/steps/steps-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.2;
+}
+
+/* Градиентный оверлей с плавными переходами */
+.steps::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: 
+    /* Плавный верхний fade */ linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(2, 6, 23, 0.85) 5%,
+    rgba(2, 6, 23, 0.7) 15%,
+    rgba(2, 6, 23, 0.7) 85%,
+    rgba(2, 6, 23, 0.85) 95%,
+    var(--bg-primary) 100%
+  );
+  pointer-events: none;
+}
+
+.steps > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE CONTAINER (Liquid Glass панель)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.steps__timeline {
+  position: relative;
+  overflow: hidden;
+
+  /* Liquid Glass премиум */
+  background: var(--glass-bg);
+  background-image: var(--glass-gradient);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-xl);
+  box-shadow: var(--shadow-glass), 0 0 60px rgba(62, 230, 177, 0.1);
+
+  padding: var(--space-8);
+}
+
+/* Декоративное изображение пути */
+.steps__timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+
+  background-image: url("../../images/timeline/journey-path.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .steps__timeline {
+    padding: var(--space-12);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STEP ITEM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.step {
+  display: flex;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  position: relative;
+  z-index: 1;
+
+  /* Премиум glass-подложка для контраста */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-4);
+
+  transition: var(--transition-normal);
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(62, 230, 177, 0.08) 0%,
+    rgba(62, 230, 177, 0.02) 100%
+  );
+  border-color: rgba(62, 230, 177, 0.2);
+  box-shadow: 0 0 30px rgba(62, 230, 177, 0.1);
+}
+
+@media (min-width: 768px) {
+  .step {
+    gap: var(--space-6);
+    padding: var(--space-6);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STEP MARKER (Круглый номер)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.step__marker {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  /* Премиум glass эффект */
+  background: linear-gradient(
+    135deg,
+    rgba(62, 230, 177, 0.1) 0%,
+    rgba(62, 230, 177, 0.05) 100%
+  );
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+
+  /* Свечение */
+  box-shadow: 0 0 15px rgba(62, 230, 177, 0.2),
+    inset 0 0 15px rgba(62, 230, 177, 0.05);
+
+  transition: var(--transition-normal);
+}
+
+.step:hover .step__marker {
+  background: linear-gradient(
+    135deg,
+    rgba(62, 230, 177, 0.2) 0%,
+    rgba(62, 230, 177, 0.1) 100%
+  );
+  box-shadow: 0 0 30px rgba(62, 230, 177, 0.4),
+    inset 0 0 20px rgba(62, 230, 177, 0.1);
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .step__marker {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.step__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--accent-primary);
+
+  /* Текстовое свечение */
+  text-shadow: 0 0 10px rgba(62, 230, 177, 0.5);
+}
+
+@media (min-width: 768px) {
+  .step__number {
+    font-size: var(--text-xl);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STEP CONTENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.step__content {
+  flex: 1;
+  padding-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .step__content {
+    padding-top: var(--space-4);
+  }
+}
+
+.step__title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .step__title {
+    font-size: var(--text-xl);
+  }
+}
+
+.step__text {
+  font-size: var(--text-md);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STEPS NOTE (Подсказка под timeline)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.steps__note {
+  margin-top: var(--space-8);
+  padding: var(--space-4);
+
+  background: rgba(62, 230, 177, 0.05);
+  border: 1px solid rgba(62, 230, 177, 0.15);
+  border-radius: var(--radius-lg);
+
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   СЕКЦИЯ ЭТАПОВ ТУРНИРА (HORIZONTAL TIMELINE)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.timeline {
+  padding-block: var(--section-padding);
+}
+
+/* Горизонтальный timeline */
+.timeline__track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .timeline__track {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  /* Горизонтальная линия */
+  .timeline__track::before {
+    content: "";
+    position: absolute;
+    top: 32px; /* Середина маркера */
+    left: 48px;
+    right: 48px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--glass-border) 0%,
+      var(--accent-primary) 20%,
+      var(--accent-primary) 80%,
+      var(--glass-border) 100%
+    );
+    z-index: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIMELINE ITEM
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .timeline__item {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+}
+
+/* Маркер */
+.timeline__marker {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--accent-primary);
+
+  transition: var(--transition-normal);
+}
+
+.timeline__item:hover .timeline__marker {
+  background: rgba(62, 230, 177, 0.1);
+  box-shadow: 0 0 20px var(--accent-primary-glow);
+}
+
+@media (min-width: 1024px) {
+  .timeline__marker {
+    width: 64px;
+    height: 64px;
+    font-size: var(--text-xl);
+  }
+}
+
+/* Контент */
+.timeline__content {
+  flex: 1;
+
+  /* Liquid Glass мини-карточка */
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-subtle));
+  -webkit-backdrop-filter: blur(var(--glass-blur-subtle));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+
+  padding: var(--space-4);
+
+  transition: var(--transition-normal);
+}
+
+.timeline__item:hover .timeline__content {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 1024px) {
+  .timeline__content {
+    padding: var(--space-5);
+  }
+}
+
+.timeline__title {
+  font-size: var(--text-md);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.timeline__text {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Даты (если есть) */
+.timeline__date {
+  display: block;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--glass-border);
+
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent-primary);
+}

@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Global Traders Championship — Международный турнир для трейдеров
+    </title>
+    <meta
+      name="description"
+      content="Международный онлайн-турнир для дисциплинированных трейдеров. Безопасная среда, честный рейтинг, призовой фонд в проп-челленджах."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/misc/favicon.ico" />
+    <link rel="apple-touch-icon" href="./assets/images/misc/favicon.ico" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Global Traders Championship" />
+    <meta property="og:description" content="Международный онлайн-турнир для дисциплинированных трейдеров" />
+    <meta property="og:image" content="./assets/images/misc/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+
+  <body>
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+
+    <!-- HEADER -->
+    <header class="header" role="banner">
+      <div class="header__container">
+        <a
+          href="#"
+          class="header__logo"
+          aria-label="Global Traders Championship"
+        >
+          <img 
+            src="./assets/images/misc/logo.webp" 
+            alt="Prop Trading Hub" 
+            class="header__logo-image"
+            width="180"
+            height="40"
+          />
+        </a>
+
+        <nav class="header__nav" aria-label="Главная навигация">
+          <ul class="header__menu" role="menubar">
+            <li role="none">
+              <a href="#about" class="header__link" role="menuitem"
+                >О турнире</a
+              >
+            </li>
+            <li role="none">
+              <a href="#how-it-works" class="header__link" role="menuitem"
+                >Как участвовать</a
+              >
+            </li>
+            <li role="none">
+              <a href="#prizes" class="header__link" role="menuitem">Призы</a>
+            </li>
+            <li role="none">
+              <a href="#leaderboard" class="header__link" role="menuitem"
+                >Рейтинг</a
+              >
+            </li>
+            <li role="none">
+              <a href="#faq" class="header__link" role="menuitem">FAQ</a>
+            </li>
+          </ul>
+        </nav>
+
+        <a href="#how-to-buy" class="header__cta btn btn--primary btn--sm"
+          >Участвовать</a
+        >
+
+        <button
+          type="button"
+          class="header__burger"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </button>
+      </div>
+
+      <div class="header__mobile-overlay" aria-hidden="true"></div>
+
+      <nav
+        id="mobile-menu"
+        class="header__mobile"
+        aria-label="Мобильная навигация"
+        aria-hidden="true"
+      >
+        <button 
+          type="button" 
+          class="header__mobile-close" 
+          aria-label="Закрыть меню"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <!-- Навигация -->
+        <ul class="header__mobile-nav">
+          <li><a href="#about" class="header__mobile-link">О турнире</a></li>
+          <li><a href="#how-it-works" class="header__mobile-link">Как участвовать</a></li>
+          <li><a href="#prizes" class="header__mobile-link">Призы</a></li>
+          <li><a href="#leaderboard" class="header__mobile-link">Рейтинг</a></li>
+          <li><a href="#faq" class="header__mobile-link">FAQ</a></li>
+        </ul>
+
+        <!-- CTA кнопка -->
+        <div class="header__mobile-cta">
+          <a href="#how-to-buy" class="btn btn--primary btn--lg">
+            Участвовать в турнире
+          </a>
+        </div>
+
+        <!-- Футер меню -->
+        <div class="header__mobile-footer">
+          <p>Prop Trading Hub × Hash Hedge</p>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main id="main" role="main">
+      <!-- HERO -->
+      <section
+        id="hero"
+        class="hero"
+        aria-labelledby="hero-title"
+        style="background-image: url('./assets/images/hero/hero-poster.webp')"
+      >
+        <!-- Видео фон -->
+        <div class="hero__video-wrapper">
+          <video
+            class="hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="./assets/images/hero/hero-poster.webp"
+          >
+            <!-- WebM для современных браузеров (меньший размер) -->
+            <source src="./assets/video/hero-bg.webm" type="video/webm" />
+            <!-- MP4 как fallback -->
+            <source src="./assets/video/hero-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+          <div class="hero__card">
+            <div class="hero__badge">
+              <span class="badge">Online Prop Trading Tournament</span>
+            </div>
+
+            <h1 id="hero-title" class="hero__title">
+              Global Traders Championship
+            </h1>
+
+            <p class="hero__partners">
+              by <strong>Prop Trading Hub</strong> × <strong>Hash Hedge</strong>
+            </p>
+
+            <p class="hero__subtitle">
+              Международный онлайн-турнир для дисциплинированных трейдеров — как
+              с опытом, так и для тех, кто делает первые шаги в проп-трейдинге.
+            </p>
+
+            <ul class="hero__benefits">
+              <li class="hero__benefit">
+                <span class="hero__benefit-icon" aria-hidden="true">🛡</span>
+                <span
+                  ><strong>Безопасная среда.</strong> Торгуйте в проп-челленджах
+                  Hash Hedge, а не на своём депозите.</span
+                >
+              </li>
+              <li class="hero__benefit">
+                <span class="hero__benefit-icon" aria-hidden="true">📈</span>
+                <span
+                  ><strong>Честный рейтинг.</strong> Общий PnL % ко всему вашему
+                  капиталу в челленджах.</span
+                >
+              </li>
+              <li class="hero__benefit">
+                <span class="hero__benefit-icon" aria-hidden="true">🎁</span>
+                <span
+                  ><strong>Призовой фонд</strong> в виде проп-челленджей с
+                  аккаунтами до $100K.</span
+                >
+              </li>
+              <li class="hero__benefit">
+                <span class="hero__benefit-icon" aria-hidden="true">🌍</span>
+                <span
+                  ><strong>Международный формат 18+.</strong> Для опытных и
+                  начинающих трейдеров.</span
+                >
+              </li>
+            </ul>
+
+            <div class="hero__actions">
+              <a href="#how-to-buy" class="btn btn--primary btn--lg"
+                >Зарегистрироваться в турнире</a
+              >
+              <a href="#how-it-works" class="btn btn--glass btn--lg"
+                >Посмотреть правила</a
+              >
+            </div>
+
+            <p class="hero__note">
+              Турнир для тех, кто играет в долгую, а не в казино.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero__scroll-indicator" aria-hidden="true">
+          <span class="hero__scroll-text">Scroll</span>
+          <span class="hero__scroll-arrow"></span>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about section" aria-labelledby="about-title">
+        <div class="container">
+          <article class="about__card" data-aos="fade-up">
+            <div class="about__content">
+              <h2 id="about-title" class="about__title">
+                Что такое Global Traders Championship?
+              </h2>
+              <p class="about__text">
+                Это онлайн-чемпионат для трейдеров, который мы проводим вместе с
+                Hash Hedge — проп-платформой с чёткими правилами и прозрачным
+                контролем риска.
+              </p>
+              <p class="about__text">
+                <strong>Формат простой:</strong> вы покупаете проп-челленджи
+                Hash Hedge; торгуете по стандартным правилам платформы; мы
+                ежедневно собираем статистику и строим рейтинг участников.
+              </p>
+              <p class="about__text">
+                В зачёт идёт не одна "лудоманская" сделка, а общий результат по
+                всем вашим челленджам.
+              </p>
+            </div>
+            <div class="about__visual">
+              <img
+                src="./assets/images/about/dashboard-panel.webp"
+                alt="Панель мониторинга трейдера с графиками и метриками"
+                class="about__image"
+                loading="lazy"
+                width="600"
+                height="450"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- AUDIENCE -->
+      <section
+        id="audience"
+        class="audience section"
+        aria-labelledby="audience-title"
+      >
+        <div class="container">
+          <header class="section__header">
+            <h2 id="audience-title" class="section__title">
+              Для кого мы делаем этот турнир
+            </h2>
+          </header>
+          <div class="audience__grid">
+            <article class="feature-card" data-aos="fade-up">
+              <div class="feature-card__icon">
+                <img
+                  src="./assets/images/audience/icon-newbie.webp"
+                  alt="Иконка — новичок в проп-среде"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <h3 class="feature-card__title">Новички в проп-среде</h3>
+              <p class="feature-card__text">
+                Если вы только начинаете и хотите попробовать проп-челленджи в
+                безопасном формате — турнир подойдёт вам.
+              </p>
+            </article>
+            <article
+              class="feature-card"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="feature-card__icon">
+                <img
+                  src="./assets/images/audience/icon-experienced.webp"
+                  alt="Иконка — трейдер с опытом в проп-среде"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <h3 class="feature-card__title">Трейдеры с опытом</h3>
+              <p class="feature-card__text">
+                Возможность показать стабильный результат в международном поле и
+                претендовать на крупные проп-аккаунты.
+              </p>
+            </article>
+            <article
+              class="feature-card"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="feature-card__icon">
+                <img
+                  src="./assets/images/audience/icon-riskmanager.webp"
+                  alt="Иконка — риск-менеджер"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <h3 class="feature-card__title">Риск-менеджеры по духу</h3>
+              <p class="feature-card__text">
+                Для тех, кто ценит контроль над просадкой, соблюдение лимитов и
+                стабильную работу на дистанции.
+              </p>
+            </article>
+            <article
+              class="feature-card"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="feature-card__icon">
+                <img
+                  src="./assets/images/audience/icon-global.webp"
+                  alt="Иконка — международные участники со всего мира"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                />
+              </div>
+              <h3 class="feature-card__title">Участники со всего мира (18+)</h3>
+              <p class="feature-card__text">
+                Нужно: возраст 18+, аккаунт Hash Hedge и готовность работать по
+                правилам.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEPS -->
+      <section
+        id="how-it-works"
+        class="steps section"
+        aria-labelledby="steps-title"
+      >
+        <div class="container">
+  <header class="section__header">
+    <h2 id="steps-title" class="section__title">
+      Как участвовать — пошаговая инструкция
+    </h2>
+  </header>
+  <div class="steps__timeline" data-aos="fade-up">
+    <div class="step">
+      <div class="step__marker">
+        <span class="step__number">1</span>
+      </div>
+      <div class="step__content">
+        <h3 class="step__title">Регистрация на платформе Hash Hedge</h3>
+        <p class="step__text">
+          Создайте учетную запись на официальном сайте Hash Hedge, нажав кнопку "Зарегистрироваться" и пройдя верификацию.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step__marker">
+        <span class="step__number">2</span>
+      </div>
+      <div class="step__content">
+        <h3 class="step__title">Выбор и покупка челленджа(ей)</h3>
+        <p class="step__text">
+          Выберите один или сразу несколько челленджей <strong>(Pro $25K, Elite $50K, Legend $100K)</strong> — в любой комбинации. При оплате обязательно используйте промокод <strong>"GOODMAN"</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step__marker">
+        <span class="step__number">3</span>
+      </div>
+      <div class="step__content">
+        <h3 class="step__title">Подтверждение участия</h3>
+        <p class="step__text">
+          Заполните форму подтверждения. Мы проверим данные покупки и активируем ваше участие в программе.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step__marker">
+        <span class="step__number">4</span>
+      </div>
+      <div class="step__content">
+        <h3 class="step__title">Торговый период</h3>
+        <p class="step__text">
+          Начало торговли согласно регламенту турнира.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step__marker">
+        <span class="step__number">5</span>
+      </div>
+      <div class="step__content">
+        <h3 class="step__title">Ежедневное обновление рейтинга</h3>
+        <p class="step__text">
+          Ежедневное обновление таблицы результатов с актуальными показателями PnL % в 12:00 МСК.
+        </p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step__marker">
+        <span class="step__number">6</span>
+      </div>
+      <div class="step__content">
+        <h3 class="step__title">Финальные результаты и награждение</h3>
+        <p class="step__text">
+          По окончании периода фиксируются финальные результаты, объявление победителей и распределение призов согласно условиям турнира.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <p class="steps__note" data-aos="fade-up">
+            Больше челленджей = больше возможностей. Главный критерий — общий
+            процент прибыли.
+          </p>
+        </div>
+      </section>
+
+      <!-- PRIZES -->
+      <section
+        id="prizes"
+        class="prizes section"
+        aria-labelledby="prizes-title"
+      >
+        <div class="container">
+          <header class="prizes__header">
+            <span class="prizes__badge">🏆 Prize Pool</span>
+            <h2 id="prizes-title" class="section__title">Призы и номинации</h2>
+          </header>
+          <div class="prizes__banner" aria-hidden="true">
+            <img
+              src="./assets/images/prizes/trophies-banner.webp"
+              alt=""
+              class="prizes__banner-image"
+              loading="lazy"
+              width="1200"
+              height="600"
+            />
+          </div>
+          <div class="prizes__grid">
+            <article class="prize-card" data-aos="fade-up">
+              <h3 class="prize-card__title">Основной зачёт — общий PnL %</h3>
+              <p class="prize-card__text">
+                Общий процент прибыли ко всему капиталу определяет места:
+              </p>
+              <ul class="prize-list">
+                <li class="prize-list__item prize-list__item--gold">
+                  <span class="prize-list__medal">🥇</span>
+                  <span class="prize-list__place">1 место</span>
+                  <span class="prize-list__prize">100% off $100,000</span>
+                </li>
+                <li class="prize-list__item prize-list__item--silver">
+                  <span class="prize-list__medal">🥈</span>
+                  <span class="prize-list__place">2 место</span>
+                  <span class="prize-list__prize">100% off $50,000</span>
+                </li>
+                <li class="prize-list__item prize-list__item--bronze">
+                  <span class="prize-list__medal">🥉</span>
+                  <span class="prize-list__place">3 место</span>
+                  <span class="prize-list__prize">100% off $25,000</span>
+                </li>
+              </ul>
+            </article>
+            <article class="prize-card" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="prize-card__title">Специальные награды</h3>
+              <ul class="special-list">
+                <li class="special-item">
+                  <span class="special-item__icon">
+                    <img
+                      src="./assets/images/prizes/icon-acceleration.webp"
+                      alt="Иконка — лучший разгон"
+                      loading="lazy"
+                      width="200"
+                      height="200"
+                    />
+                  </span>
+                  <div class="special-item__content">
+                    <h4 class="special-item__title">Лучший разгон</h4>
+                    <p class="special-item__desc">
+                      Максимальный PnL % на одном челлендже
+                    </p>
+                    <span class="special-item__prize">100% off $100,000</span>
+                  </div>
+                </li>
+                <li class="special-item">
+                  <span class="special-item__icon">
+                    <img
+                      src="./assets/images/prizes/icon-stability.webp"
+                      alt="Иконка — самый стабильный трейдер"
+                      loading="lazy"
+                      width="200"
+                      height="200"
+                    />
+                  </span>
+                  <div class="special-item__content">
+                    <h4 class="special-item__title">Самый стабильный</h4>
+                    <p class="special-item__desc">
+                      Минимальная просадка при достойном PnL
+                    </p>
+                    <span class="special-item__prize">100% off $100,000</span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+          <p class="prizes__total" data-aos="fade-up">
+            Общий призовой фонд —
+            <span class="prizes__total-value">$475,000</span> в проп-челленджах
+            Hash Hedge.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="calculation"
+        class="calculation section"
+        aria-labelledby="calculation-title"
+      >
+        <div class="container">
+          <article class="calculation__card" data-aos="fade-up">
+            <div class="calculation__content">
+              <h2 id="calculation-title" class="calculation__title">
+                Как мы считаем результат
+              </h2>
+              <p class="calculation__text">
+                В зачёт турнира идёт общий процент прибыли по всем вашим
+                челленджам Hash Hedge, а не одна отдельная сделка.
+              </p>
+              <span class="calculation__formula">
+                Общий PnL % = (Суммарная прибыль по всем челленджам /
+                Суммарный стартовый капитал) 100%
+              </span>
+              <p class="calculation__text">
+                Такой подход поощряет стабильную работу на дистанции и
+                аккуратное отношение к рискам.
+              </p>
+            </div>
+            <div class="calculation__visual">
+              <img
+                src="./assets/images/calculation/formula-diagram.webp"
+                alt="Схема расчёта общего результата по PnL % и капиталу"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- LEADERBOARD -->
+      <section
+        id="leaderboard"
+        class="leaderboard section"
+        aria-labelledby="leaderboard-title"
+      >
+        <div class="container">
+          <header class="section__header">
+            <h2 id="leaderboard-title" class="section__title">
+              Онлайн-таблица участников
+            </h2>
+            <p class="section__subtitle">
+              Обновляется ежедневно по данным Hash Hedge.
+            </p>
+          </header>
+          <div class="leaderboard__table-wrapper" data-aos="fade-up">
+            <table
+              class="leaderboard__table"
+              role="table"
+              aria-label="Рейтинг участников"
+            >
+              <thead class="leaderboard__head">
+                <tr>
+                  <th scope="col" class="leaderboard__th leaderboard__th--rank">
+                    #
+                  </th>
+                  <th scope="col" class="leaderboard__th">Трейдер</th>
+                  <th scope="col" class="leaderboard__th">Капитал</th>
+                  <th scope="col" class="leaderboard__th leaderboard__th--pnl">
+                    PnL %
+                  </th>
+                  <th scope="col" class="leaderboard__th">MaxDD %</th>
+                  <th scope="col" class="leaderboard__th">Лучший %</th>
+                  <th
+                    scope="col"
+                    class="leaderboard__th leaderboard__th--country"
+                  >
+                    Страна
+                  </th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="leaderboard__cards" aria-label="Рейтинг участников"></div>
+          <p class="leaderboard__note" data-aos="fade-up">
+            Данные обновляются раз в день по итогам выгрузки с Hash Hedge.
+          </p>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section id="why" class="why section" aria-labelledby="why-title">
+        <div class="container">
+          <header class="section__header">
+            <h2 id="why-title" class="section__title">
+              Чем отличаемся от "казино-чемпионатов"
+            </h2>
+          </header>
+          <div class="why__grid">
+            <article class="feature-card" data-aos="fade-up">
+              <div class="feature-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <h3 class="feature-card__title">Без риска для депозита</h3>
+              <p class="feature-card__text">
+                Торговля только в проп-челленджах. Ваш личный депозит не
+                участвует.
+              </p>
+            </article>
+            <article
+              class="feature-card"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="feature-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="12" y1="20" x2="12" y2="10" />
+                  <line x1="18" y1="20" x2="18" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="16" />
+                </svg>
+              </div>
+              <h3 class="feature-card__title">Дисциплина и дистанция</h3>
+              <p class="feature-card__text">
+                Общий PnL %, а не один all-in. Для тех, кто зарабатывает
+                системно.
+              </p>
+            </article>
+            <article
+              class="feature-card"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="feature-card__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <h3 class="feature-card__title">Официальные данные</h3>
+              <p class="feature-card__text">
+                Только отчёты с платформы. Нарушение правил = дисквалификация.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW TO BUY -->
+      <section id="how-to-buy" class="how-to-buy section" aria-labelledby="how-to-buy-title">
+        <div class="container">
+          <div class="how-to-buy__card" data-aos="fade-up">
+            <h2 id="how-to-buy-title" class="how-to-buy__title">Как купить челлендж</h2>
+            <ol class="how-to-buy__steps">
+              <li class="how-to-buy__step">
+                <span class="how-to-buy__number">1</span>
+                <p>Зарегистрируйтесь на официальном сайте <strong>Hash Hedge</strong> и пройдите верификацию.</p>
+              </li>
+              <li class="how-to-buy__step">
+                <span class="how-to-buy__number">2</span>
+                <p>Выберите челленджи <strong>Pro $25K</strong>, <strong>Elite $50K</strong> или <strong>Legend $100K</strong> (можно несколько сразу) и оплатите с промокодом <strong class="how-to-buy__promo">GOODMAN</strong>.</p>
+              </li>
+              <li class="how-to-buy__step">
+                <span class="how-to-buy__number">3</span>
+                <p>Используйте аккаунт, созданный по нашей ссылке в Telegram, или зарегистрируйте новый по кнопке ниже.</p>
+              </li>
+            </ol>
+            <div class="how-to-buy__action">
+              <a href="https://hashhedge.com/?fpr=prop_trading_hub" target="_blank" rel="noopener" class="btn btn--primary btn--lg how-to-buy__btn">
+                <span>Начать на Hash Hedge</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTRATION -->
+      <section
+        id="registration"
+        class="registration section"
+        aria-labelledby="registration-title"
+      >
+        <div class="container">
+          <div class="form-card" data-aos="fade-up">
+            <h2 id="registration-title" class="form-card__title">
+              Присоединиться к турниру
+            </h2>
+            <p class="form-card__subtitle">
+              Оставьте заявку — получите инструкции по участию.
+            </p>
+            <form id="registration-form" class="form" novalidate>
+              <input
+                type="text"
+                name="website"
+                class="visually-hidden"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+              <div class="form-group">
+                <label for="name" class="form-label"
+                  >Имя или никнейм
+                  <span class="form-label__required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  required
+                  placeholder="Ваше имя"
+                />
+                <span id="name-error" class="form-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-label"
+                  >E-mail <span class="form-label__required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  required
+                  placeholder="your@email.com"
+                />
+                <span id="email-error" class="form-error" role="alert"></span>
+              </div>
+              <div class="form-row form-row--2">
+                <div class="form-group">
+                  <label for="telegram" class="form-label">Telegram <span class="form-label__required">*</span></label>
+                  <input
+                    type="text"
+                    id="telegram"
+                    name="telegram"
+                    class="form-input"
+                    required
+                    placeholder="@username"
+                  />
+                  <span id="telegram-error" class="form-error" role="alert"></span>
+                </div>
+                <div class="form-group">
+                  <label for="country" class="form-label"
+                    >Страна <span class="form-label__required">*</span></label
+                  >
+                  <div class="form-select-wrapper">
+                    <select
+                      id="country"
+                      name="country"
+                      class="form-input form-select"
+                      required
+                    >
+                      <option value="" disabled selected>Выберите страну</option>
+                      
+                      <!-- СНГ -->
+                      <optgroup label="СНГ">
+                        <option value="Россия">Россия</option>
+                        <option value="Украина">Украина</option>
+                        <option value="Беларусь">Беларусь</option>
+                        <option value="Казахстан">Казахстан</option>
+                        <option value="Узбекистан">Узбекистан</option>
+                        <option value="Азербайджан">Азербайджан</option>
+                        <option value="Грузия">Грузия</option>
+                        <option value="Армения">Армения</option>
+                        <option value="Молдова">Молдова</option>
+                        <option value="Кыргызстан">Кыргызстан</option>
+                        <option value="Таджикистан">Таджикистан</option>
+                        <option value="Туркменистан">Туркменистан</option>
+                      </optgroup>
+                      
+                      <!-- Европа -->
+                      <optgroup label="Европа">
+                        <option value="Великобритания">Великобритания</option>
+                        <option value="Германия">Германия</option>
+                        <option value="Франция">Франция</option>
+                        <option value="Италия">Италия</option>
+                        <option value="Испания">Испания</option>
+                        <option value="Нидерланды">Нидерланды</option>
+                        <option value="Бельгия">Бельгия</option>
+                        <option value="Швейцария">Швейцария</option>
+                        <option value="Австрия">Австрия</option>
+                        <option value="Польша">Польша</option>
+                        <option value="Чехия">Чехия</option>
+                        <option value="Швеция">Швеция</option>
+                        <option value="Норвегия">Норвегия</option>
+                        <option value="Дания">Дания</option>
+                        <option value="Финляндия">Финляндия</option>
+                        <option value="Португалия">Португалия</option>
+                        <option value="Ирландия">Ирландия</option>
+                        <option value="Греция">Греция</option>
+                        <option value="Румыния">Румыния</option>
+                        <option value="Венгрия">Венгрия</option>
+                        <option value="Болгария">Болгария</option>
+                        <option value="Хорватия">Хорватия</option>
+                        <option value="Словакия">Словакия</option>
+                        <option value="Словения">Словения</option>
+                        <option value="Литва">Литва</option>
+                        <option value="Латвия">Латвия</option>
+                        <option value="Эстония">Эстония</option>
+                        <option value="Кипр">Кипр</option>
+                        <option value="Мальта">Мальта</option>
+                        <option value="Люксембург">Люксембург</option>
+                        <option value="Исландия">Исландия</option>
+                        <option value="Сербия">Сербия</option>
+                        <option value="Черногория">Черногория</option>
+                      </optgroup>
+                      
+                      <!-- Америка -->
+                      <optgroup label="Америка">
+                        <option value="США">США</option>
+                        <option value="Канада">Канада</option>
+                        <option value="Мексика">Мексика</option>
+                        <option value="Бразилия">Бразилия</option>
+                        <option value="Аргентина">Аргентина</option>
+                        <option value="Колумбия">Колумбия</option>
+                        <option value="Чили">Чили</option>
+                      </optgroup>
+                      
+                      <!-- Азия и Ближний Восток -->
+                      <optgroup label="Азия и Ближний Восток">
+                        <option value="ОАЭ">ОАЭ</option>
+                        <option value="Израиль">Израиль</option>
+                        <option value="Турция">Турция</option>
+                        <option value="Саудовская Аравия">Саудовская Аравия</option>
+                        <option value="Катар">Катар</option>
+                        <option value="Кувейт">Кувейт</option>
+                        <option value="Бахрейн">Бахрейн</option>
+                        <option value="Китай">Китай</option>
+                        <option value="Япония">Япония</option>
+                        <option value="Южная Корея">Южная Корея</option>
+                        <option value="Сингапур">Сингапур</option>
+                        <option value="Гонконг">Гонконг</option>
+                        <option value="Тайвань">Тайвань</option>
+                        <option value="Индия">Индия</option>
+                        <option value="Индонезия">Индонезия</option>
+                        <option value="Малайзия">Малайзия</option>
+                        <option value="Таиланд">Таиланд</option>
+                        <option value="Вьетнам">Вьетнам</option>
+                        <option value="Филиппины">Филиппины</option>
+                      </optgroup>
+                      
+                      <!-- Океания и Африка -->
+                      <optgroup label="Океания и Африка">
+                        <option value="Австралия">Австралия</option>
+                        <option value="Новая Зеландия">Новая Зеландия</option>
+                        <option value="ЮАР">ЮАР</option>
+                        <option value="Египет">Египет</option>
+                        <option value="Марокко">Марокко</option>
+                        <option value="Нигерия">Нигерия</option>
+                      </optgroup>
+                      
+                      <!-- Другое -->
+                      <optgroup label="Другое">
+                        <option value="Другая страна">Другая страна</option>
+                      </optgroup>
+                    </select>
+                    <svg
+                      class="form-select-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="age"
+                    class="form-checkbox__input"
+                    required
+                  />
+                  <span class="form-checkbox__label">Мне уже есть 18 лет</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="terms"
+                    class="form-checkbox__input"
+                    required
+                  />
+                  <span class="form-checkbox__label"
+                    >Согласен с <a href="#">правилами</a> и
+                    <a href="#">политикой</a></span
+                  >
+                </label>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--lg">
+                  Отправить заявку
+                </button>
+              </div>
+            </form>
+            <p class="form-footer">
+              Мы не рассылаем спам и не передаём контакты третьим лицам.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="faq section" aria-labelledby="faq-title">
+        <div class="container">
+          <header class="section__header">
+            <div class="faq__icon-wrapper" data-aos="fade-up">
+              <img 
+                src="./assets/images/faq/icon-question.webp" 
+                alt="" 
+                class="faq__icon-image"
+                width="200"
+                height="200"
+                loading="lazy"
+                aria-hidden="true"
+              />
+            </div>
+            <h2 id="faq-title" class="section__title">
+              Часто задаваемые вопросы
+            </h2>
+          </header>
+          <div class="faq__container" data-aos="fade-up">
+            <div class="faq__item">
+              <button type="button" class="faq__trigger" aria-expanded="false">
+                <span class="faq__question"
+                  >Я новичок. Мне рано участвовать?</span
+                >
+                <svg
+                  class="faq__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq__content" aria-hidden="true">
+                <div class="faq__answer">
+                  <p>
+                    Если вы понимаете базовые принципы торговли — турнир
+                    подойдёт. Формат приучает к дисциплине.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button type="button" class="faq__trigger" aria-expanded="false">
+                <span class="faq__question"
+                  >Сколько челленджей можно взять?</span
+                >
+                <svg
+                  class="faq__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq__content" aria-hidden="true">
+                <div class="faq__answer">
+                  <p>
+                    Сколько угодно. Но в зачёт идёт общий PnL % ко всей сумме.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button type="button" class="faq__trigger" aria-expanded="false">
+                <span class="faq__question">Можно использовать роботов?</span>
+                <svg
+                  class="faq__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq__content" aria-hidden="true">
+                <div class="faq__answer">
+                  <p>Да, если они соответствуют правилам Hash Hedge.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button type="button" class="faq__trigger" aria-expanded="false">
+                <span class="faq__question"
+                  >Если не попаду в призы, челленджи сгорят?</span
+                >
+                <svg
+                  class="faq__icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="faq__content" aria-hidden="true">
+                <div class="faq__answer">
+                  <p>
+                    Нет. Ваши челленджи продолжают жить по стандартным правилам
+                    Hash Hedge.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNERS -->
+      <section
+        id="partners"
+        class="partners section"
+        aria-labelledby="partners-title"
+      >
+        <div class="container">
+          <header class="section__header">
+            <h2 id="partners-title" class="section__title">Организаторы</h2>
+          </header>
+          <div class="partners__grid">
+            <article class="partner-card" data-aos="fade-up">
+              <img 
+                src="./assets/images/partners/prop-trading-hub.webp" 
+                alt="Prop Trading Hub" 
+                class="partner-card__logo"
+                loading="lazy"
+                width="200"
+                height="60"
+              />
+              <h3
+                class="partner-card__name"
+                style="color: var(--accent-primary)"
+              >
+                Prop Trading Hub
+              </h3>
+              <p class="partner-card__desc">
+                Образовательный проект для трейдеров. Системная торговля и
+                управление риском.
+              </p>
+            </article>
+            <article
+              class="partner-card"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <img 
+                src="./assets/images/partners/hash-hedge.webp" 
+                alt="Hash Hedge" 
+                class="partner-card__logo"
+                loading="lazy"
+                width="200"
+                height="60"
+                onerror="this.style.display='none'"
+              />
+              <h3
+                class="partner-card__name"
+                style="color: var(--accent-secondary)"
+              >
+                Hash Hedge
+              </h3>
+              <p class="partner-card__desc">
+                Проп-платформа с чёткими правилами и удобной инфраструктурой.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__cta">
+          <h2 class="footer__cta-title">Готовы сыграть в долгую?</h2>
+          <p class="footer__cta-text">
+            Присоединяйтесь и проверьте себя в безопасной проп-среде.
+          </p>
+          <a href="#how-to-buy" class="btn btn--primary btn--lg"
+            >Зарегистрироваться</a
+          >
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            2025 Global Traders Championship. Prop Trading Hub Team.
+          </p>
+        </div>
+        <div class="footer__disclaimer">
+          <img 
+            src="./assets/images/misc/icon-disclaimer.webp" 
+            alt="" 
+            class="footer__disclaimer-icon"
+            width="48"
+            height="48"
+            aria-hidden="true"
+          />
+          <p>
+            Торговля на финансовых рынках связана с риском. Успешные результаты не
+            гарантируют аналогичных результатов в будущем. Организаторы не несут
+            ответственности за торговые решения участников.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
+</html>
